@@ -1,11 +1,15 @@
 /* #region page */
 .page {
+  --page-padding-top: 24px;
+  --page-padding-inline: 20px;
+
   font-family: Manrope, sans-serif;
   color: #1b2129;
   font-size: 16px;
   line-height: 140%;
 
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 .page__body {
@@ -14,20 +18,32 @@
 
 .page__menu {
   position: fixed;
+  z-index: 1;
   top: 0;
   right: 0;
   left: 0;
-  z-index: 1;
 
-  opacity: 0;
-  visibility: hidden;
   pointer-events: none;
+  visibility: hidden;
 }
 
 .page__menu:target {
-  opacity: 1;
-  visibility: visible;
   pointer-events: all;
+  visibility: visible;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .page__menu {
+    clip-path: inset(0 0 0 100%);
+    transition:
+      clip-path 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      visibility 0s 0.3s;
+  }
+
+  .page__menu:target {
+    clip-path: inset(0);
+    transition-delay: 0s;
+  }
 }
 
 .page:has(.page__menu:target) {

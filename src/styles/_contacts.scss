@@ -20,6 +20,9 @@
 }
 
 .contacts__field {
+  --field-background: #f9f9f9;
+  --field-color: #1b2129;
+
   box-sizing: border-box;
   width: 100%;
   height: 48px;
@@ -27,8 +30,8 @@
   border: 1px solid transparent;
   border-radius: 8px;
   outline: none;
-  background-color: #f9f9f9;
-  color: #1b2129;
+  background-color: var(--field-background);
+  color: var(--field-color);
   font: inherit;
   font-size: 14px;
   line-height: 1.4;
@@ -45,6 +48,11 @@
 
 .contacts__field:focus-visible {
   border-color: #f98921;
+}
+
+.contacts__field:is(:autofill, :-webkit-autofill) {
+  box-shadow: inset 0 0 0 100px var(--field-background);
+  -webkit-text-fill-color: var(--field-color);
 }
 
 .contacts__field--message {
@@ -72,8 +80,7 @@
   background-color: #363e4a;
 }
 
-.contacts__button:focus-visible,
-.contacts__link:focus-visible {
+.contacts__button:focus-visible {
   outline: 2px solid #f98921;
   outline-offset: 3px;
 }
@@ -103,6 +110,11 @@
 
 .contacts__link:hover {
   color: #a34b0c;
+}
+
+.contacts__link:focus-visible {
+  outline: 2px solid #f98921;
+  outline-offset: 3px;
 }
 
 @media (min-width: 744px) {

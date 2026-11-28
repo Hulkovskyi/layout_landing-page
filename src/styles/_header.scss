@@ -1,7 +1,7 @@
 /* #region header */
 .header {
   box-sizing: border-box;
-  padding: 24px 20px 40px;
+  padding: var(--page-padding-top) var(--page-padding-inline) 40px;
   height: 100vh;
   background-size: cover;
   background-image: url('../../Images/Background-mobile.webp');
@@ -11,9 +11,9 @@
   flex-direction: column;
 }
 
-.header__top {
+.header__top,
+.menu__top {
   display: flex;
-  width: 100%;
   align-items: center;
   justify-content: space-between;
 }
